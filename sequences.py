@@ -4,7 +4,7 @@ def fibonacci(n):
     loop_number = n - 2
     for x in range(0, loop_number):
         fib_list.append(fib_list[len(fib_list) - 1] + fib_list[len(fib_list) - 2])
-    return [fib_list[n - 1], fib_list]
+    return fib_list
 def prime_numbers(n):
     'Return the nth prime number starting from 2.'
     prime_list = []
@@ -20,7 +20,7 @@ def prime_numbers(n):
         if composite_bool == 0:
             prime_list.append(number)
         number += 1
-    return [prime_list[-1], prime_list]
+    return prime_list
 def is_prime(number):
     'Check if a number is prime.'
     factor = 2
@@ -43,7 +43,7 @@ def mersenne(n):
         if is_prime(number - 1):
             mersenne_list.append(number - 1)
         power += 1
-    return [mersenne_list[-1], mersenne_list, power - 1]
+    return [mersenne_list, power - 1]
 def is_mersenne(number):
     'Check if number is a Mersenne prime.'
     power = 2
@@ -67,7 +67,7 @@ def sequence(terms, start, end):
             _sum += terms[counter] * (x ** power)
             power -= 1
             counter += 1
-        table.append((x, _sum))
+        table.append(_sum)
         x += 1
     return table
 def geo_sequence(term1, term2, start, end):
@@ -75,6 +75,6 @@ def geo_sequence(term1, term2, start, end):
     x = start
     table = []
     while x <= end:
-        table.append((x, term1 * (term2 ** x)))
+        table.append(term1 * (term2 ** x))
         x += 1
     return table
